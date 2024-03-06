@@ -1,0 +1,12 @@
+[Unit]
+Description=API service for PC management
+After=network.target
+
+[Service]
+User=vnlab
+Group=www-data
+WorkingDirectory=/opt/pjt
+ExecStart=/opt/pjt/.venv/bin/gunicorn -c app_conf.py main:app
+
+[Install]
+WantedBy=multi-user.target
